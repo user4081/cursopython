@@ -389,28 +389,44 @@ else:
 
 import random 
 
-dic = {}
+dic = {'nombre':[], 'legajo':[],'edad':[],'sueldo':[],'categoria':[]}
 letras = ["a","b","c","d","e","f","g","e","h","i","j","k","o","u"]
-categoria = ["A","B","C"]
+cat = ["A","B","C"]
 
-def cargarDiccionario ():
+def cargarDiccionario (a):
 
     for i in range(100):
-                
+             
         nombre = letras[random.randint(0,len(letras)-1)]+letras[random.randint(0,len(letras)-1)]+letras[random.randint(0,len(letras)-1)]+letras[random.randint(0,len(letras)-1)] 
+        legajo = random.randint(1000,3000)
+        edad = random.randint(21,50)
+        sueldo = random.randint(40000,100000)
+        categoria = cat[random.randint(0,len(cat)-1)]
         
-        dic[nombre] = [random.randint(1000,3000),random.randint(21,50), random.randint(40000,100000), categoria[random.randint(0,len(categoria)-1)]]
-"""        
-def reporteSalarios ():
+        a['nombre'].append(nombre)
+        a['legajo'].append(legajo)
+        a['edad'].append(edad)
+        a['sueldo'].append(sueldo)
+        a['categoria'].append(categoria)        
+
+
+      
+def reporteSalarios (a):
+
     salarios = 0
-    for i in range(len(dic)):
-        salarios = salarios + dic[i][2]
+    for i in range(len(a['sueldo'])):
+        salarios = salarios + a['sueldo'][i]
 
     return(salarios)
-"""
 
-cargarDiccionario()
-print(dic)
+
+
+
+cargarDiccionario(dic)
+print("Importe total de salarios pagados por la empresa: $",reporteSalarios(dic))
+# print(len(dic['edad']))
+# print(dic)
+
 
 
 
